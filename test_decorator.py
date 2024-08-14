@@ -14,10 +14,10 @@ def test_decorator(mocker):
     is_valid_token_mock.return_value = True
 
     function_to_test = lambda *x, **y: "output"
+    response = login_required(function_to_test)()
 
-    response = login_required(function_to_test)
     assert response == "output"
 
 
-# if "__main__" == __name__:
-#     print(test_decorator())
+if "__main__" == __name__:
+    print(test_decorator())

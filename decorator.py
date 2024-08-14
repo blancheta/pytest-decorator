@@ -12,14 +12,14 @@ def login_required(func):
     def inner_function(*args, **kwargs):
         if (
             BBGithubAuth.is_valid_token()
-            and session["oauth"] == 1
-            and session["supersecret"] == "abc"
+            and session.get("oauth") == 1
+            and session.get("supersecret") == "abc"
         ):
             return func(*args, **kwargs)
         else:
             return "invalid-token"
 
-    return inner_function()
+    return inner_function
 
 
 if __name__ == "__main__":
