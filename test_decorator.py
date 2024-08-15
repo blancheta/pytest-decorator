@@ -1,4 +1,5 @@
-from decorator import login_required
+from decorator import GithubAuth
+from views import function_to_mock
 
 
 def test_decorator(mocker):
@@ -15,10 +16,14 @@ def test_decorator(mocker):
     is_valid_token_mock.return_value = True
 
     function_to_test = lambda *x, **y: "output"
-    response = login_required(function_to_test)()
+    response = GithubAuth.login_required(function_to_test)()
 
     assert response == "output"
 
+def test_function_with_decorator_mock(mocker, mock_login_required):
+
+    output = function_to_mock()
+    print(output)
 
 if "__main__" == __name__:
     print(test_decorator())
