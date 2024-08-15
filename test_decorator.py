@@ -25,6 +25,3 @@ def test_function_with_decorator_mock(mocker, mock_login_required):
     output = important_view()
     print(output)
     assert output == {"status": "complete"}
-
-if "__main__" == __name__:
-    print(test_decorator())
