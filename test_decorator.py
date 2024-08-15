@@ -1,5 +1,5 @@
 from decorator import GithubAuth
-from views import function_to_mock
+from views import important_view
 
 
 def test_decorator(mocker):
@@ -22,8 +22,9 @@ def test_decorator(mocker):
 
 def test_function_with_decorator_mock(mocker, mock_login_required):
 
-    output = function_to_mock()
+    output = important_view()
     print(output)
+    assert output == {"status": "complete"}
 
 if "__main__" == __name__:
     print(test_decorator())
