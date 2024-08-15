@@ -1,7 +1,7 @@
 from utils import session
 
 
-class BBGithubAuth:
+class GithubAuth:
 
     @staticmethod
     def is_valid_token():
@@ -11,7 +11,7 @@ class BBGithubAuth:
 def login_required(func):
     def inner_function(*args, **kwargs):
         if (
-            BBGithubAuth.is_valid_token()
+            GithubAuth.is_valid_token()
             and session.get("oauth") == 1
             and session.get("supersecret") == "abc"
         ):

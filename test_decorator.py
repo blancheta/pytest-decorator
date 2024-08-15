@@ -11,7 +11,7 @@ def test_decorator(mocker):
     )
     print(session.get("supersecret"))
 
-    is_valid_token_mock = mocker.patch("decorator.BBGithubAuth.is_valid_token")
+    is_valid_token_mock = mocker.patch("decorator.GithubAuth.is_valid_token")
     is_valid_token_mock.return_value = True
 
     function_to_test = lambda *x, **y: "output"
